@@ -28,4 +28,9 @@ public class StandardOutputTask {
     public void fixedRate_withTimeUnit() {
         logger.info("fixedRate_withTimeUnit");
     }
+
+    @Scheduled(cron = "*/5 * * * * *", zone = "Asia/Tokyo")
+    public void cron() {
+        logger.info("cron");
+    }
 }
