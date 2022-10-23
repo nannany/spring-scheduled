@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import java.util.Date;
+import java.util.Random;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -32,8 +33,9 @@ public class EnableSchedulingConfig implements SchedulingConfigurer {
         taskRegistrar.addTriggerTask(
                 () -> logger.info("custom scheduler"),
                 triggerContext -> {
+                    Random random = new Random();
                     Date date = new Date();
-                    return Date.from(date.toInstant().plusSeconds(5));
+                    return Date.from(date.toInstant().plusSeconds(random.nextInt(5) + 1));
                 }
         );
 
